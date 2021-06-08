@@ -23,7 +23,7 @@
             <div class="film" v-for="film in films">
                 <ul>
                     <li>{{film.title}}</li>
-                    <li>{{film.original_title}}</li>
+                    <li v-if="film.title !== film.original_title">{{film.original_title}}</li>
                     <li><img :src="(film.original_language === 'en') ? flagUrl + 'gb' + '/flat/64.png' : flagUrl + film.original_language + '/flat/64.png'"></li>
                     <li>{{film.original_language}}</li>
                     <li>{{film.vote_average}}</li>
