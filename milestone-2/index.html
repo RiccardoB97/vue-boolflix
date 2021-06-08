@@ -24,7 +24,7 @@
                 <ul>
                     <li>{{film.title}}</li>
                     <li>{{film.original_title}}</li>
-                    <li><img :src="flagUrl + film.original_language + '/flat/64.png'"></li>
+                    <li><img :src="(film.original_language === 'en') ? flagUrl + 'gb' + '/flat/64.png' : flagUrl + film.original_language + '/flat/64.png'"></li>
                     <li>{{film.original_language}}</li>
                     <li>{{film.vote_average}}</li>
                 </ul>
@@ -34,7 +34,7 @@
                 <ul>
                     <li>{{serie.name}}</li>
                     <li>{{serie.original_name}}</li>
-                    <li><img :src="flagUrl + serie.original_language + '/flat/64.png'" alt=""></li>
+                    <li><img :src="(serie.original_language === 'en') ? flagUrl + 'gb' + '/flat/64.png' : flagUrl + serie.original_language + '/flat/64.png'" alt=""></li>
                     <li>{{serie.original_language}}</li>
                     <li>{{serie.vote_average}}</li>
                 </ul>

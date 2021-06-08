@@ -19,7 +19,6 @@ const app = new Vue({
             )
                 .then(resp => {
                     this.films = resp.data.results;
-                    console.log(this.films);
                 })
                 .catch(e => {
                     console.error(e);
@@ -30,7 +29,6 @@ const app = new Vue({
                 .get(this.seriesUrl + this.apiKey + '&query=' + this.query)
                 .then(resp => {
                     this.series = resp.data.results
-                    console.log(this.series);
                 })
                 .catch(e => {
                     log.error(e)
