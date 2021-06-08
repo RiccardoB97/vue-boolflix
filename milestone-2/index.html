@@ -12,22 +12,33 @@
     <div id="app">
         <!-- Site header -->
         <header id="site_header">
-            <input type="search" name="search" id="search" v-model='query' @keyup.enter="toggleSearch">
-            <button @click="toggleSearch">Search</button>
+            <input type="search" name="search" id="search" v-model='query' @keyup.enter="searchFilm(), searchSeries()">
+            <button @click="searchFilm(), searchSeries()">Search</button>
         </header>
         <!-- /Site header -->
 
         <!-- Site main -->
         <main id="site_main">
+
             <div class="film" v-for="film in films">
                 <ul>
                     <li>{{film.title}}</li>
                     <li>{{film.original_title}}</li>
+                    <li><img :src="flagUrl + film.original_language + '/flat/64.png'"></li>
                     <li>{{film.original_language}}</li>
                     <li>{{film.vote_average}}</li>
                 </ul>
             </div>
 
+            <div class="series" v-for="serie in series">
+                <ul>
+                    <li>{{serie.name}}</li>
+                    <li>{{serie.original_name}}</li>
+                    <li><img :src="flagUrl + serie.original_language + '/flat/64.png'" alt=""></li>
+                    <li>{{serie.original_language}}</li>
+                    <li>{{serie.vote_average}}</li>
+                </ul>
+            </div>
 
 
         </main>

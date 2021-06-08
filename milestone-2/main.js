@@ -3,14 +3,20 @@ const app = new Vue({
 
     data: {
         query: '',
-        movieUrl: "https://api.themoviedb.org/3/search/movie?api_key=5170c70f94bcc05071b2466c1ed085ea",
-        films: []
+        apiKey: "api_key=5170c70f94bcc05071b2466c1ed085ea",
+        movieUrl: "https://api.themoviedb.org/3/search/movie?",
+        films: [],
+        seriesUrl: 'https://api.themoviedb.org/3/search/tv?',
+        series: [],
+        flagUrl: "https://www.countryflags.io/",
+
     },
 
     methods: {
-        toggleSearch() {
+        searchFilm() {
             axios
-                .get(this.movieUrl + '&query=' + this.query)
+                .get(this.movieUrl + this.apiKey + '&query=' + this.query,
+            )
                 .then(resp => {
                     this.films = resp.data.results;
                     console.log(this.films);
@@ -18,14 +24,21 @@ const app = new Vue({
                 .catch(e => {
                     console.error(e);
                 })
+        },
+        searchSeries() {
+            axios
+                .get(this.seriesUrl + this.apiKey + '&query=' + this.query)
+                .then(resp => {
+                    this.series = resp.data.results
+                    console.log(this.series);
+                })
+                .catch(e => {
+                    log.error(e)
+                })
         }
     },
     mounted() {
-        axios
-            .get("https://www.countryflags.io")
-            .then(resp => {
-                console.log(resp);
-            })
+
     }
 
 })
