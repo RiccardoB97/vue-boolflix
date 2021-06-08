@@ -10,7 +10,18 @@
 
 <body>
     <div id="app">
+        <!-- Site header -->
+        <header id="site_header">
+            <input type="search" name="search" id="search" v-model='query' @keyup.enter="toggleSearch">
+            <button @click="toggleSearch">Search</button>
+        </header>
+        <!-- /Site header -->
 
+        <!-- Site main -->
+        <main id="site_main">
+
+        </main>
+        <!-- /Site main -->
 
 
 
