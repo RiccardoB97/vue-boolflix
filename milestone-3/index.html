@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/1d47f7a9f5.js" crossorigin="anonymous"></script>
+    <!-- link CSS -->
+    <link rel="stylesheet" href="./style.css">
     <title>Bool-flix</title>
 </head>
 
@@ -30,6 +34,9 @@
                     <li>{{film.original_language}}</li>
                     <li>{{film.vote_average}}</li>
                     <li><img :src="imageUrl + film.poster_path" alt=""></li>
+                    <li> <i class="fas fa-star" v-for='i in stars'
+                            :class="(i <= Math.ceil(film.vote_average / 2) ? 'star' : '')"></i>
+                    </li>
                 </ul>
             </div>
 
@@ -42,6 +49,9 @@
                     <li>{{serie.original_language}}</li>
                     <li>{{serie.vote_average}}</li>
                     <li><img :src="imageUrl + serie.poster_path" alt=""></li>
+                    <li> <i class="fas fa-star" v-for='i in stars'
+                            :class="(i <= Math.ceil(serie.vote_average / 2) ? 'star' : '')"></i>
+                    </li>
                 </ul>
             </div>
 

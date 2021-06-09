@@ -11,6 +11,7 @@ const app = new Vue({
         flagUrl: "https://www.countryflags.io/",
         imageUrl: "https://image.tmdb.org/t/p/w342",
         stars: 5,
+        message: '',
     },
 
     methods: {
@@ -35,6 +36,14 @@ const app = new Vue({
                     console.error(e)
                 })
         },
+        showsNotFound() {
+            setTimeout(() => {
+                if (this.films.length === 0 && this.series.length === 0 && this.query !== '') {
+                    return this.message = 'No film or series was found under this name.'
+                }
+            }, 1500)
+
+        }
     },
     mounted() {
 
