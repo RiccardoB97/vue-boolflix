@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: lightgray;
+}
+
+/*****
+ Site Header 
+*****/
+
+#site_header{
+    height: 80px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem
+}
+#site_header > h1{
+    color: red
+}
+
+/*****
+ Site Main 
+*****/
+
+
+#site_main .card_wrapper{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card_wrapper > .card{
+    margin: 0.5rem;
+}
