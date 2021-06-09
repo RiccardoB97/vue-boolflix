@@ -33,10 +33,9 @@ const app = new Vue({
                 .catch(e => {
                     console.error(e)
                 })
-        }
+        },
     },
     mounted() {
-
     }
 
 })

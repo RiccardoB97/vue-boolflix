@@ -16,8 +16,8 @@
         <header id="site_header">
             <h1>BoolFlix</h1>
             <div class="search_bar">
-                <input type="text" id="search" v-model='query' @keyup.enter="searchFilm(), searchSeries()">
-                <button @click="searchFilm(), searchSeries()">Search</button>
+                <input type="text" id="search" v-model='query' @keyup.enter="searchFilm(); searchSeries();">
+                <button @click="searchFilm(); searchSeries();">Search</button>
             </div>
         </header>
         <!-- /Site header -->
@@ -27,6 +27,21 @@
             <div class="card_wrapper">
                 <div class="card" v-for="film in films">
                     <img :src="imageUrl + film.poster_path" alt="">
+                    <div class="overlay">
+                        <div class='infos'>
+                            <h4>Titolo: </h4> <span>{{film.title}}</span>
+                        </div>
+                        <div class='infos' v-if="film.title !== film.original_title">
+                            <h4>Titolo originale: </h4> <span>{{film.original_title}}</span>
+                        </div>
+                        <div class="infos">
+                            <h4>Voto: </h4> <span>{{Math.ceil(film.vote_average /2 )}}
+                        </div>
+                        <div class="infos">
+                            <h4>Overview: </h4>
+                            <p>{{film.overview}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
