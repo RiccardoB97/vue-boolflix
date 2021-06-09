@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Css Link -->
     <link rel="stylesheet" href="./style.css">
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/1d47f7a9f5.js" crossorigin="anonymous"></script>
     <title>Bool-flix</title>
 </head>
 
@@ -35,7 +37,9 @@
                             <h4>Titolo originale: </h4> <span>{{film.original_title}}</span>
                         </div>
                         <div class="infos">
-                            <h4>Voto: </h4> <span>{{Math.ceil(film.vote_average /2 )}}
+                            <h4>Voto: </h4>
+                            <i class="fas fa-star" v-for='i in stars'
+                                :class="(i <= Math.ceil(film.vote_average / 2) ? 'star' : '')"></i>
                         </div>
                         <div class="infos">
                             <h4>Overview: </h4>

@@ -64,3 +64,6 @@ body {
     font-weight: bold;
     color: white;
 }
+.infos > .star {
+    color: yellow
+}
