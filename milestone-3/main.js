@@ -9,7 +9,7 @@ const app = new Vue({
         seriesUrl: 'https://api.themoviedb.org/3/search/tv?',
         series: [],
         flagUrl: "https://www.countryflags.io/",
-
+        imageUrl: "https://image.tmdb.org/t/p/w342"
     },
 
     methods: {

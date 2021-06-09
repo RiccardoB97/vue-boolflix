@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bool-flix</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Site header -->
+        <header id="site_header">
+            <input type="text" id="search" v-model='query' @keyup.enter="searchFilm(), searchSeries()">
+            <button @click="searchFilm(), searchSeries()">Search</button>
+        </header>
+        <!-- /Site header -->
+
+        <!-- Site main -->
+        <main id="site_main">
+
+            <div class="film" v-for="film in films">
+                <ul>
+                    <li>{{film.title}}</li>
+                    <li v-if="film.title !== film.original_title">{{film.original_title}}</li>
+                    <li><img
+                            :src="(film.original_language === 'en') ? flagUrl + 'gb' + '/flat/64.png' : flagUrl + film.original_language + '/flat/64.png'">
+                    </li>
+                    <li>{{film.original_language}}</li>
+                    <li>{{film.vote_average}}</li>
+                    <li><img :src="imageUrl + film.poster_path" alt=""></li>
+                </ul>
+            </div>
+
+            <div class="series" v-for="serie in series">
+                <ul>
+                    <li>{{serie.name}}</li>
+                    <li>{{serie.original_name}}</li>
+                    <li><img :src="(serie.original_language === 'en') ? flagUrl + 'gb' + '/flat/64.png' : flagUrl + serie.original_language + '/flat/64.png'"
+                            alt=""></li>
+                    <li>{{serie.original_language}}</li>
+                    <li>{{serie.vote_average}}</li>
+                    <li><img :src="imageUrl + serie.poster_path" alt=""></li>
+                </ul>
+            </div>
+
+
+        </main>
+        <!-- /Site main -->
+
+
+
+
+    </div>
+
+    <!-- AJAX Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Vue JS-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- Main JS file -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
