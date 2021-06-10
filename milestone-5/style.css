@@ -50,7 +50,8 @@ body {
     background-color: black;
     display: none;
     color: rgba(255, 255, 255, 0.764);
-    padding: 3rem 1rem
+    padding: 3rem 1rem;
+    overflow: auto;
 }
 .card:hover{
     cursor: pointer;
@@ -62,6 +63,7 @@ body {
     padding: 0.5rem 0;
     overflow: auto;
     max-height: 150px;
+    margin-bottom: 1rem;
 }
 .infos > h4 {
     display: inline-block;
@@ -70,6 +72,11 @@ body {
 }
 .infos > .star {
     color: yellow
+}
+.cast{
+    margin-top: 0.1rem;
+    max-height: 50px;
+    overflow: auto;
 }
 h1{
     padding: 2rem
