@@ -31,15 +31,15 @@ const app = new Vue({
                     console.error(e);
                 })
 
-            for (film in this.films) {
+            for (let i = 0; i < this.films.length; i++) {
                 axios
-                    .get(`https://api.themoviedb.org/3/movie/${film.id}/credits`, {
+                    .get(`https://api.themoviedb.org/3/movie/${this.films[i].id}/credits`, {
                         params: {
                             api_key: this.api_key
                         }
                     })
                     .then(resp => {
-                        console.log(resp.data.results);;
+                        console.log(resp);
                     })
                     .catch(e => {
                         console.error(e)
