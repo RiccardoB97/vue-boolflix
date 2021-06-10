@@ -18,8 +18,8 @@
         <header id="site_header">
             <h1>BoolFlix</h1>
             <div class="search_bar">
-                <input type="text" id="search" v-model='query' @keyup.enter="searchData() ">
-                <button @click="searchData()">Search</button>
+                <input type="text" id="search" v-model='query' @keyup.enter="searchData();  ">
+                <button @click="searchData(); ">Search</button>
             </div>
         </header>
         <!-- /Site header -->
@@ -48,8 +48,9 @@
                             <h4>Overview: </h4>
                             <p>{{film.overview}}</p>
                         </div>
-                        <div class="infos" v-for="person in film.cast">
-                            <p>{{person.name}}</p>
+                        <div class="infos">
+                            <p v-for="person in film.
+                            cast">{{person.name}}</p>
                         </div>
                     </div>
                 </div>

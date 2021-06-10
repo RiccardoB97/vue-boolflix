@@ -40,8 +40,8 @@ const app = new Vue({
                             }
                         })
                         .then(resp => {
+                            this.$set(film, ' cast', []);
                             film.cast = resp.data.cast;
-                            console.log(film.cast);
                         })
                         .catch(e => {
                             console.error(e)
