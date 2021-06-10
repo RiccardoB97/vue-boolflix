@@ -31,20 +31,24 @@ const app = new Vue({
                     console.error(e);
                 })
 
-            for (let i = 0; i < this.films.length; i++) {
-                axios
-                    .get(`https://api.themoviedb.org/3/movie/${this.films[i].id}/credits`, {
-                        params: {
-                            api_key: this.api_key
-                        }
-                    })
-                    .then(resp => {
-                        console.log(resp);
-                    })
-                    .catch(e => {
-                        console.error(e)
-                    })
-            }
+            setTimeout(() => {
+                this.films.forEach(film => {
+                    axios
+                        .get(`https://api.themoviedb.org/3/movie/${film.id}/credits`, {
+                            params: {
+                                api_key: this.api_key
+                            }
+                        })
+                        .then(resp => {
+                            film.cast = resp.data.cast;
+                            console.log(film.cast);
+                        })
+                        .catch(e => {
+                            console.error(e)
+                        })
+                })
+            }, 50)
+
 
 
 
