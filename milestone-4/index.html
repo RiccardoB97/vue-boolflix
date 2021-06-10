@@ -18,9 +18,8 @@
         <header id="site_header">
             <h1>BoolFlix</h1>
             <div class="search_bar">
-                <input type="text" id="search" v-model='query'
-                    @keyup.enter="searchFilm(); searchSeries();showsNotFound()">
-                <button @click="searchFilm(); searchSeries();showsNotFound()">Search</button>
+                <input type="text" id="search" v-model='query' @keyup.enter="searchData() ">
+                <button @click="searchData()">Search</button>
             </div>
         </header>
         <!-- /Site header -->

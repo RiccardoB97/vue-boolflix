@@ -3,7 +3,7 @@ const app = new Vue({
 
     data: {
         query: '',
-        apiKey: "api_key=5170c70f94bcc05071b2466c1ed085ea",
+        api_key: "5170c70f94bcc05071b2466c1ed085ea",
         movieUrl: "https://api.themoviedb.org/3/search/movie?",
         films: [],
         seriesUrl: 'https://api.themoviedb.org/3/search/tv?',
@@ -15,37 +15,44 @@ const app = new Vue({
     },
 
     methods: {
-        searchFilm() {
+        searchData() {
+            // get movies data
             axios
-                .get(this.movieUrl + this.apiKey + '&query=' + this.query,
-            )
+                .get(this.movieUrl, {
+                    params: {
+                        api_key: this.api_key,
+                        query: this.query
+                    }
+                })
                 .then(resp => {
                     this.films = resp.data.results;
                 })
                 .catch(e => {
                     console.error(e);
                 })
-        },
-        searchSeries() {
+
+            // Get series data
             axios
-                .get(this.seriesUrl + this.apiKey + '&query=' + this.query)
+                .get(this.seriesUrl, {
+                    params: {
+                        api_key: this.api_key,
+                        query: this.query
+                    }
+                })
                 .then(resp => {
                     this.series = resp.data.results
                 })
                 .catch(e => {
                     console.error(e)
                 })
-        },
-        showsNotFound() {
+
+            // Show not found
             setTimeout(() => {
                 if (this.films.length === 0 && this.series.length === 0 && this.query !== '') {
                     return this.message = 'No film or series was found under this name.'
                 }
             }, 1500)
         },
-        getMovieCast() {
-            axios.get()
-        }
     },
     mounted() {
 
