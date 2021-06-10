@@ -40,7 +40,6 @@ body {
     margin: 0.5rem;
     position: relative;
     font-size: 14px;
-
 }
 .card > .overlay {
     position: absolute;
@@ -52,6 +51,9 @@ body {
     display: none;
     color: rgba(255, 255, 255, 0.764);
     padding: 3rem 1rem
+}
+.overlay > .infos{
+    padding: 0.5rem 0
 }
 .card:hover{
     cursor: pointer;

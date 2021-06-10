@@ -8,7 +8,7 @@ const app = new Vue({
         films: [],
         seriesUrl: 'https://api.themoviedb.org/3/search/tv?',
         series: [],
-        flagUrl: "https://www.countryflags.io/",
+        flagsToShow: ['en', 'it', 'fr', 'es', 'ja', 'de', 'fi', 'hi', 'ko', 'ru', 'zh'],
         imageUrl: "https://image.tmdb.org/t/p/w342",
         stars: 5,
         message: '',
@@ -42,7 +42,9 @@ const app = new Vue({
                     return this.message = 'No film or series was found under this name.'
                 }
             }, 1500)
-
+        },
+        getMovieCast() {
+            axios.get()
         }
     },
     mounted() {
