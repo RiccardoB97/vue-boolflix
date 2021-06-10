@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Css Link -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/1d47f7a9f5.js" crossorigin="anonymous"></script>
+    <title>Bool-flix</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Site header -->
+        <header id="site_header">
+            <h1>BoolFlix</h1>
+            <div class="search_bar">
+                <input type="text" id="search" v-model='query' @keyup.enter="searchData() ">
+                <button @click="searchData()">Search</button>
+            </div>
+        </header>
+        <!-- /Site header -->
+
+        <!-- Site main -->
+        <main id="site_main">
+            <div class="card_wrapper">
+                <div class="card" v-for="film in films">
+                    <img :src="imageUrl + film.poster_path" alt="">
+                    <div class="overlay">
+                        <div class='infos'>
+                            <h4>Titolo: </h4> <span>{{film.title}}</span>
+                        </div>
+                        <div class='infos' v-if="film.title !== film.original_title">
+                            <h4>Titolo originale: </h4> <span>{{film.original_title}}</span>
+                        </div>
+                        <div class="infos">
+                            <h4>Voto: </h4>
+                            <i class="fas fa-star" v-for='i in stars'
+                                :class="(i <= Math.ceil(film.vote_average / 2) ? 'star' : '')"></i>
+                        </div>
+                        <div class="infos" v-if="flagsToShow.includes(film.original_language)">
+                            <img :src="'https://www.unknown.nu/flags/images/' + film.original_language + '-100'" alt="">
+                        </div>
+                        <div class="infos">
+                            <h4>Overview: </h4>
+                            <p>{{film.overview}}</p>
+                        </div>
+                        <div class="infos">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card" v-for="serie in series">
+                    <img :src="imageUrl + serie.poster_path" alt="">
+                    <div class="overlay">
+                        <div class='infos'>
+                            <h4>Titolo: </h4> <span>{{serie.name}}</span>
+                        </div>
+                        <div class='infos' v-if="serie.name !== serie.original_name">
+                            <h4>Titolo originale: </h4> <span>{{serie.original_name}}</span>
+                        </div>
+                        <div class="infos">
+                            <h4>Voto: </h4>
+                            <i class="fas fa-star" v-for='i in stars'
+                                :class="(i <= Math.ceil(serie.vote_average / 2) ? 'star' : '')"></i>
+                        </div>
+                        <div class="infos" v-if="flagsToShow.includes(serie.original_language)">
+                            <img :src="'https://www.unknown.nu/flags/images/' + serie.original_language + '-100'"
+                                alt="">
+                        </div>
+                        <div class="infos">
+                            <h4>Overview: </h4>
+                            <p>{{serie.overview}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1>{{message}}</h1>
+        </main>
+        <!-- /Site main -->
+
+
+
+
+    </div>
+
+    <!-- AJAX Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Vue JS-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- Main JS file -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
